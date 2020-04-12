@@ -1,3 +1,4 @@
+// Función para cargar mas resultados cuando llega al final de la página
 $(window).scroll(function () {
     let offset = releases.offset + releases.limit;
     if (offset < releases.total) {
@@ -14,6 +15,11 @@ $(window).scroll(function () {
     }
 });
 
+/**
+ * Consulta y agrega mas resultados de los nuevos lanzamientos al final de la página
+ *
+ * @param {int} offset
+ */
 function pagingReleases(offset) {
     fetch(Routing.generate('home_paginated_releases', {'offset': offset}))
         .then(function (response) {
@@ -36,6 +42,9 @@ function pagingReleases(offset) {
         });
 }
 
+/**
+ * Agrega el HTML de los nuevos lanzamientos a la vista
+ */
 function releasesLoad() {
     let html = '';
     Object.entries(releases.items).forEach(([index, release]) => {
@@ -45,6 +54,13 @@ function releasesLoad() {
     $('#divReleasesLoad').append(html);
 }
 
+/**
+ * Genera el HTML de un nuevo item de los lanzamientos
+ *
+ * @param {int} index
+ * @param release
+ * @returns {string}
+ */
 function htmlCarouselItem(index, release) {
     let html = '';
     let artistUrl = '';

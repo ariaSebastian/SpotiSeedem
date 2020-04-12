@@ -15,9 +15,13 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class SpotifyService
 {
+    // Key para el token en sesion
     const TOKEN_SESSION_KEY = 'RBSsjgB7jLNywit677yrGRSNbw5r7gLw';
+    // URI para obtener token
     const TOKE_URI = 'https://accounts.spotify.com/api/token';
+    // Base URI para las peticiones
     const BASE_URI = 'https://api.spotify.com/v1/';
+    // Número de intentos para las peticiones
     const ATTEMPTS_NUMBER = 3;
 
     /**
@@ -41,6 +45,8 @@ class SpotifyService
     public $client;
 
     /**
+     * Indica si el token ya esta inicializado
+     *
      * @var bool
      */
     public $isInitialized;
@@ -54,11 +60,11 @@ class SpotifyService
             'auth_bearer' => $this->session->get(self::TOKEN_SESSION_KEY),
         ]);
 
-        if (!$this->session->has(self::TOKEN_SESSION_KEY)) {
+//        if (!$this->session->has(self::TOKEN_SESSION_KEY)) {
             $this->isInitialized = $this->tokenInitialize();
-        } else {
-            $this->isInitialized = true;
-        }
+//        } else {
+//            $this->isInitialized = true;
+//        }
     }
 
 
@@ -98,6 +104,12 @@ class SpotifyService
         return false;
     }
 
+    /**
+     * Retorna los nuevos lanzamientos
+     *
+     * @param int $offset
+     * @return bool|array
+     */
     public function getNewReleases($offset = 0)
     {
         if ($this->isInitialized) {
@@ -128,6 +140,12 @@ class SpotifyService
         return false;
     }
 
+    /**
+     * Retorna la información de un artista por medio de su ID
+     *
+     * @param $id
+     * @return bool|object
+     */
     public function getArtist($id)
     {
         if ($this->isInitialized) {
@@ -154,6 +172,12 @@ class SpotifyService
         return false;
     }
 
+    /**
+     * Retorna el top de canciones de un artista por medio de su ID
+     *
+     * @param $id
+     * @return bool|array
+     */
     public function getArtistsTopTracks($id)
     {
         if ($this->isInitialized) {

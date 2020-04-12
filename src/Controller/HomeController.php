@@ -14,9 +14,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
 
+    // Key para los mensajes de error en sesion
     const ERROR_CONNECTION_SESSION_KEY = 'Ccasje5XNKck2ThyavDgvGdKSvvYgFnU';
 
     /**
+     * Home
+     *
      * @Route("", name="home")
      */
     public function index()
@@ -25,6 +28,8 @@ class HomeController extends AbstractController
     }
 
     /**
+     * Nuevos lanzamientos
+     *
      * @Route("/releases", name="home_releases")
      */
     public function releases(SpotifyService $spotifyService)
@@ -42,6 +47,8 @@ class HomeController extends AbstractController
     }
 
     /**
+     * Endpoint para la paginación de los nuevos lanzamientos
+     *
      * @Route("/paginated-releases/{offset}", name="home_paginated_releases", options={"expose"=true}, methods={"GET"})
      */
     public function paginatedReleases(SpotifyService $spotifyService = null, $offset = 0){
@@ -49,6 +56,8 @@ class HomeController extends AbstractController
     }
 
     /**
+     * Detalle de un artista
+     *
      * @Route("/artist/{id}", name="home_artist", options={"expose"=true})
      */
     public function artist(SpotifyService $spotifyService, $id)
