@@ -29,7 +29,7 @@ correr en el puerto **8001**
 
 - Dar permisos totales sobre los archivos del proyecto
 > `cd ..`  
-> `sudo chmod -R 777 SpotiSeedem`  
+> `sudo chmod -R 777 SpotifySeedem`  
 > `cd SpotifySeedem`
 
 - Configurar el archivo de variables de entorno
