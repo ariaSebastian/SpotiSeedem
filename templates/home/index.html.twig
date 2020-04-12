@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="container py-4">
-        {% for flashMessage in app.session.flashbag.get('error') %}
+        {% for flashMessage in app.session.flashbag.get(constant('App\\Controller\\HomeController::ERROR_CONNECTION_SESSION_KEY')) %}
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 {{ flashMessage }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
