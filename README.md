@@ -1,4 +1,4 @@
-#SpotiSeedem
+# SpotiSeedem
 Se requiere diseñar un módulo que cumpla con las siguientes características:
 - Consumo de la API de Spotify para obtener información de:
   - Artistas
@@ -7,10 +7,10 @@ Se requiere diseñar un módulo que cumpla con las siguientes características:
 ### Requisitos
 Este módulo esta diseñado para ser desplegado con Docker, 
 por lo cual se deja la guía para su instalación:
-- [Docker install](https://docs.docker.com/get-docker/)
-- [Docker Compose install](https://docs.docker.com/compose/install/)
+- <a href="https://docs.docker.com/get-docker/" target="_blank">Docker install</a>
+- <a href="https://docs.docker.com/compose/install/" target="_blank">Docker Compose install</a>
 
-##Deploy
+## Deploy
 - Creación del contenedor, el cual esta configurado para 
 correr en el puerto **8001**  
 > `docker-compose up -d --build`  
@@ -22,4 +22,4 @@ correr en el puerto **8001**
 en el archivo **.env**, si no existe, hay que crearlo  
 
 - Ya esta todo listo, el módulo se encuentra disponible en 
- la siguiente ruta: [SpotiSeedem](http://localhost:8001)
+ la siguiente ruta: <a href="http://localhost:8001" target="_blank">SpotiSeedem</a>
