@@ -7,8 +7,8 @@ Se requiere diseñar un módulo que cumpla con las siguientes características:
 ### Requisitos
 Este módulo esta diseñado para ser desplegado con Docker, 
 por lo cual se deja la guía para su instalación:
-- [Docker install](https://docs.docker.com/get-docker/){:target="_blank"}
-- <a href="https://docs.docker.com/compose/install/" target="_blank">Docker Compose install</a>
+- [Docker install](https://docs.docker.com/get-docker/)
+- [Docker Compose install](https://docs.docker.com/compose/install/)
 
 ## Deploy
 - Creación del contenedor, el cual esta configurado para 
@@ -22,4 +22,4 @@ correr en el puerto **8001**
 en el archivo **.env**, si no existe, hay que crearlo  
 
 - Ya esta todo listo, el módulo se encuentra disponible en 
- la siguiente ruta: <a href="http://localhost:8001" target="_blank">SpotiSeedem</a>
+ la siguiente ruta: [SpotiSeedem](http://localhost:8001)
