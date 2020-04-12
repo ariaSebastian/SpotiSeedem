@@ -18,3 +18,4 @@
 .env
 composer.lock
 symfony.lock
+.idea/
