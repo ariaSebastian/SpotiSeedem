@@ -7,7 +7,7 @@ Se requiere diseñar un módulo que cumpla con las siguientes características:
 ### Requisitos
 Este módulo esta diseñado para ser desplegado con Docker, 
 por lo cual se deja la guía para su instalación:
-- <a href="https://docs.docker.com/get-docker/" target="_blank">Docker install</a>
+- [Docker install](https://docs.docker.com/get-docker/){:target="_blank"}
 - <a href="https://docs.docker.com/compose/install/" target="_blank">Docker Compose install</a>
 
 ## Deploy
