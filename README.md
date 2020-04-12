@@ -11,11 +11,26 @@ por lo cual se deja la guía para su instalación:
 - [Docker Compose install](https://docs.docker.com/compose/install/)
 
 ## Deploy
+- Ingresar a la carpeta del proyecto
+> `cd SpotifySeedem`
+
 - Creación del contenedor, el cual esta configurado para 
 correr en el puerto **8001**  
 > `docker-compose up -d --build`  
-- Instalación de dependencias  
+
+- Ingresar al contenedor
+> `docker exec -ti spotify-seedem bash`
+
+- Instalación de dependencias desde el contenedor 
 > `composer install`  
+
+- Salir del contenedor
+> `exit`
+
+- Dar permisos totales sobre los archivos del proyecto
+> `cd ..`  
+> `sudo chmod -R 777 SpotiSeedem`  
+> `cd SpotifySeedem`
 
 - Configurar el archivo de variables de entorno
 > Se debe copiar la configuración del archivo llamado **.env.example** 
