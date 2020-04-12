@@ -32,8 +32,7 @@ class HomeController extends AbstractController
         $releases = json_decode($this->paginatedReleases($spotifyService)->getContent());
 
         if($releases === false){
-            $this->get('session')->getFlashBag()->set('error', 'No se han podido consultar los nuevos lanzamientos, por favor intentalo mas tarde');
-//            $this->addFlash(self::ERROR_CONNECTION_SESSION_KEY, 'No se han podido consultar los nuevos lanzamientos, por favor intentalo mas tarde');
+            $this->addFlash(self::ERROR_CONNECTION_SESSION_KEY, 'No se han podido consultar los nuevos lanzamientos, por favor intentalo mas tarde');
             return $this->redirectToRoute('home');
         }
 
