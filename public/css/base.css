@@ -1,0 +1,13 @@
+body {
+    background-color: #222222;
+    color: #e0e0e0;
+    font-family: 'Muli', sans-serif;
+}
+
+.navbar {
+    transition: 450ms all;
+}
+
+.navbar:hover {
+    box-shadow: #3f454b 1px 1px 5px;
+}

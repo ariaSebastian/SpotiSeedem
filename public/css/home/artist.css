@@ -1,0 +1,9 @@
+.table-hover tbody tr:hover {
+    color: white;
+}
+.table tbody td {
+    vertical-align: middle;
+}
+.table tbody img {
+    max-width: 50px;
+}

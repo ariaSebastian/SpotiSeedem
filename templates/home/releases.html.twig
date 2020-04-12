@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}| Nuevos lanzamientos{% endblock %}
+
+{% block classNavItem %}active{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/home/releases.css') }}"/>
+{% endblock %}
+
+{% block body %}
+    <div class="container py-4">
+        <div class="row border-bottom border-white mb-4">
+            <h1>New Releases</h1>
+        </div>
+        <div class="row">
+            <div class="col carousel">
+                {% for release in releases.items %}
+                    {% if (loop.index - 1) % 5 == 0 %}
+                        <div class="row carousel__container">
+                    {% endif %}
+                    <div class="carousel-item">
+                        <img src="{% if release.images is not empty %}{{ release.images[0].url }}{% else %}{{ asset('img/img-no-available.jpg') }}{% endif %}"
+                             class="carousel-item__img" alt="Album image"/>
+                        <div class="carousel-item__details">
+                            <h6 class="font-weight-bold carousel-item__details--title">{{ release.name }}</h6>
+                            <p class="carousel-item__details--subtitle">
+                                {% for artist in release.artists %}
+                                    <a href="{{ path('home_artist', {'id': artist.id}) }}" class="badge badge-primary mr-2">{{ artist.name }}</a>
+                                {% endfor %}
+                            </p>
+                        </div>
+                    </div>
+                    {% if loop.index % 5 == 0 %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <div id="divReleasesLoad"></div>
+            </div>
+        </div>
+        <div class="row mt-3 mb-5" id="divLoading">
+            <div class="col-lg-12 text-center p-3" style="display: none;">
+                <i class="fas fa-spinner fa-spin fa-3x"></i>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        let releases = {{ releases|json_encode|raw }};
+        let imgNoAvailable = "{{ asset('img/img-no-available.jpg') }}";
+    </script>
+    <script src="{{ asset('js/home/releases.js') }}"></script>
+{% endblock %}

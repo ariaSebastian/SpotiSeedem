@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}| Artista{% endblock %}
+
+{% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/home/artist.css') }}"/>
+{% endblock %}
+
+{% block body %}
+    <div class="container py-4">
+        <div class="row border-bottom border-white mb-5">
+            <h1>Artista</h1>
+        </div>
+        <div class="row mb-4">
+            <div class="col-lg-3 col-md-3 col-sm-12 text-center mb-3">
+                <img src="{{ artist.images[0].url }}" alt="Artist image" class="rounded-circle img-fluid img-thumbnail"
+                     style="max-height: 250px;">
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-12 pl-lg-5">
+                <h3>
+                    {{ artist.name }}
+                    <button type="button" class="btn btn-primary btn-sm ml-3" title="Seguidores" aria-toggle="tooltip">
+                        <i class="fas fa-users mr-2"></i><span
+                                class="badge badge-light">{{ artist.followers.total }}</span>
+                    </button>
+                </h3>
+                <p class="mb-4"><a href="{{ artist.external_urls.spotify }}" target="_blank">Ir a la página del
+                        artista</a></p>
+                <p class="mb-0">Géneros:</p>
+                <div class="mb-4">
+                    {% for genre in artist.genres %}
+                        <span class="badge badge-pill badge-info mr-2">{{ genre }}</span>
+                    {% endfor %}
+                </div>
+                <p class="mb-0">Popularidad:</p>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
+                         aria-valuenow="{{ artist.popularity }}" aria-valuemin="0" aria-valuemax="100"
+                         style="width: {{ artist.popularity }}%">{{ artist.popularity }}%
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Foto</th>
+                            <th scope="col">Album</th>
+                            <th scope="col">Canción</th>
+                            <th scope="col">Link</th>
+                        </tr>
+                        </thead>
+                        <tbody class="text-white">
+                        {% for track in artist.topTracks %}
+                            <tr>
+                                <th scope="row">
+                                    <img src="{{ track.album.images? track.album.images[0].url : asset('img/img-no-available.jpg') }}"
+                                         alt="Track image" class="rounded img-fluid">
+                                </th>
+                                <td>{{ track.album.name }}</td>
+                                <td>{{ track.name }}</td>
+                                <td>
+                                    <a href="{{ track.external_urls.spotify }}" target="_blank"><i class="fas fa-play-circle fa-2x"></i></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {#    <script>#}
+    {#        let releases = {{ releases|json_encode|raw }};#}
+    {#        let imgNoAvailable = "{{ asset('img/img-no-available.jpg') }}";#}
+    {#    </script>#}
+    {#    <script src="{{ asset('js/home/releases.js') }}"></script>#}
+{% endblock %}
