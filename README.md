@@ -12,7 +12,7 @@ por lo cual se deja la guía para su instalación:
 
 ## Deploy
 - Ingresar a la carpeta del proyecto
-> `cd SpotifySeedem`
+> `cd SpotiSeedem`
 
 - Creación del contenedor, el cual esta configurado para 
 correr en el puerto **8001**  
@@ -29,8 +29,8 @@ correr en el puerto **8001**
 
 - Dar permisos totales sobre los archivos del proyecto
 > `cd ..`  
-> `sudo chmod -R 777 SpotifySeedem`  
-> `cd SpotifySeedem`
+> `sudo chmod -R 777 SpotiSeedem`  
+> `cd SpotiSeedem`
 
 - Configurar el archivo de variables de entorno
 > Se debe copiar la configuración del archivo llamado **.env.example** 
